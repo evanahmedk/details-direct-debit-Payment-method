@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment & Direct Debit Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 40px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
+            text-align: left;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Your Payment and Direct Debit Details</h1>
+
+    <!-- Form points to /api/submit endpoint -->
+    <form action="/api/submit" method="POST">
+        <!-- Card Number -->
+        <div class="form-group">
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" 
+                   placeholder="1234 5678 9012 3456" required>
+        </div>
+
+        <!-- Sort Code -->
+        <div class="form-group">
+            <label for="sortCode">Sort Code:</label>
+            <input type="text" id="sortCode" name="sortCode" 
+                   placeholder="12-34-56" 
+                   pattern="\d{2}-\d{2}-\d{2}" 
+                   title="Please enter a valid 6-digit sort code (e.g., 12-34-56)" 
+                   required>
+        </div>
+
+        <!-- Account Number -->
+        <div class="form-group">
+            <label for="accountNumber">Account Number:</label>
+            <input type="text" id="accountNumber" name="accountNumber" 
+                   placeholder="12345678" 
+                   pattern="\d{8}" 
+                   title="Please enter an 8-digit account number" 
+                   required>
+        </div>
+
+        <!-- Name on Card -->
+        <div class="form-group">
+            <label for="nameOnCard">Name on Card:</label>
+            <input type="text" id="nameOnCard" name="nameOnCard" 
+                   placeholder="John Doe" required>
+        </div>
+
+        <!-- Expiry Date -->
+        <div class="form-group">
+            <label for="expiryDate">Expiry Date:</label>
+            <input type="text" id="expiryDate" name="expiryDate" 
+                   placeholder="MM/YY" required>
+        </div>
+
+        <!-- CVV -->
+        <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input type="password" id="cvv" name="cvv" 
+                   placeholder="123" required>
+        </div>
+
+        <button type="submit">Submit Details</button>
+    </form>
+</body>
+</html>

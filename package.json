@@ -1,0 +1,12 @@
+{
+  "name": "payment-form",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node api/submit.js",
+    "dev": "node --experimental-specifier-resolution=node api/submit.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
